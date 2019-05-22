@@ -1,0 +1,17 @@
+#Examples
+#
+#package_list:
+#- vim
+#- screen
+#- nmap
+#- nmap-ncat
+#- wget
+#- unzip
+#- rootsh
+#
+#local_packages:
+#- splunkforwarder-6.5.1-f74036626f0c-linux-2.6-x86_64.rpm
+
+package_list:
+
+local_packages:

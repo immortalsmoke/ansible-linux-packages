@@ -1,0 +1,17 @@
+#Example
+
+#package_list:
+#- vim
+#- screen
+#- netcat
+#- nmap
+#- wget
+#- unzip
+#- git
+#
+#local_packages:
+#- rootsh_1.5.3-1_amd64.deb 
+
+package_list:
+
+local_packages:

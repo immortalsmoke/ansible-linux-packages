@@ -1,0 +1,29 @@
+#Installs common packages on Linux servers
+
+- name: "Include variables for Linux family"
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Installing commonly used packages
+  package:
+    name: "{{ item }}"
+  with_items: "{{ package_list }}"
+
+- name: Copying local installers to /tmp
+  copy:
+    src: "files/{{ item }}"
+    dest: "/tmp"
+  with_items: "{{ local_packages }}"
+
+- name: RedHat | Running local installers
+  yum:
+    name: "/tmp/{{ item }}"
+    state: present
+  with_items: "{{ local_packages }}"
+  when: ansible_os_family == "RedHat"
+
+- name: Debian | Running local installers
+  apt:
+    deb: "/tmp/{{ item }}"
+  with_items: "{{ local_packages }}"
+  when: ansible_os_family == "Debian"
+
